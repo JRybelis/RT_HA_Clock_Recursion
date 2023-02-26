@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RT_HA_Clock.CLI", "RT_HA_Clock.CLI\RT_HA_Clock.CLI.csproj", "{C7CA131B-7CF4-47ED-9145-381ED20FA95B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RT_HA_Clock.LIB", "RT_HA_Clock.LIB\RT_HA_Clock.LIB.csproj", "{19AA226D-A64E-41B1-AB51-741D2993601B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RT_HA_Clock.Logic", "RT_HA_Clock.Logic\RT_HA_Clock.Logic.csproj", "{48E32D58-36B0-4B15-AC3B-34B131A05525}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7CA131B-7CF4-47ED-9145-381ED20FA95B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7CA131B-7CF4-47ED-9145-381ED20FA95B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7CA131B-7CF4-47ED-9145-381ED20FA95B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7CA131B-7CF4-47ED-9145-381ED20FA95B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19AA226D-A64E-41B1-AB51-741D2993601B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19AA226D-A64E-41B1-AB51-741D2993601B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19AA226D-A64E-41B1-AB51-741D2993601B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19AA226D-A64E-41B1-AB51-741D2993601B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48E32D58-36B0-4B15-AC3B-34B131A05525}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48E32D58-36B0-4B15-AC3B-34B131A05525}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48E32D58-36B0-4B15-AC3B-34B131A05525}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48E32D58-36B0-4B15-AC3B-34B131A05525}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
