@@ -48,28 +48,24 @@ public class ClockCli : IClockViewService, IClockCli
         _writer.Write(@"   (O,O)                ");
         _writer.Write(@"  (   ) How it works    ");
         _writer.Write(@"-"" - ""------------------");
-        _writer.Write(Environment.NewLine);
-        _writer.Write("Enter a the hour of the day.");
+        _writer.Write("Enter the hour of the day.");
         _writer.Write("Then, enter a the minute of that hour.");
         _writer.Write("The Clock arm angle calculator will do its magic.");
         _writer.Write("And return the value of the smaller angle between the clock arms for the time you chose.");
         _writer.Write(Environment.NewLine);
         _writer.Write(@"█▓▒▒░░░Try it:░░░▒▒▓█");
-        _writer.Write(Environment.NewLine);
     }
 
     private void DisplayConsoleAppHeader()
     {
         _writer.Clear();
-        _writer.Write(@".'`~~~~~~~~~~~`'.");
-        _writer.Write(@"(  .'11 12 1'.  )");
-        _writer.Write(@"|  :10 \|   2:  |");
-        _writer.Write(@"|  :9   @   3:  |");
-        _writer.Write(@"|  :8       4;  |");
-        _writer.Write(@"'. '..7 6 5..' .'");
-        _writer.Write(@" ~-------------~ ");
-        _writer.Write(Environment.NewLine);
-        _writer.Write(Environment.NewLine);
+        _writer.Write(@".'`~~~~~~~~~~~`'.   ████████╗ █████╗  ██████╗ █████╗ ██████╗  █████╗  ██████╗");
+        _writer.Write(@"(  .'11 12 1'.  )   ╚══██╔══╝██╔══██╗██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔════╝");
+        _writer.Write(@"|  :10 \|   2:  |      ██║   ███████║██║     ███████║██║  ██║███████║██║     ");
+        _writer.Write(@"|  :9   @   3:  |      ██║   ██╔══██║██║     ██╔══██║██║  ██║██╔══██║██║     ");
+        _writer.Write(@"|  :8       4;  |      ██║   ██║  ██║╚██████╗██║  ██║██████╔╝██║  ██║╚██████╗");
+        _writer.Write(@"'. '..7 6 5..' .'      ╚═╝   ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝ ╚═════╝");
+        _writer.Write(@" ~-------------~       THE   ANALOG   CLOCK   ARMS   DEGREE  ANGLE  CALCULATOR");
         _writer.Write(Environment.NewLine);
     }
 
@@ -129,7 +125,7 @@ public string GetUserInput()
         var angle = _analogClockService.CalculateSmallerAngleBetweenClockArms(userTimeInput);
 
         _writer.Write(Environment.NewLine);
-        _writer.Write($"Excellent, you have decided to check the time {userTimeInput.HoursInput} : {userTimeInput.MinutesInput}.");
+        _writer.Write($"Excellent, you have decided to check the time {userTimeInput.HoursInput} hours {userTimeInput.MinutesInput} minutes.");
         _writer.Write($"On an analog clock, the arms marking the time create a {angle} degree angle.");
         _writer.Write(Environment.NewLine);
     }

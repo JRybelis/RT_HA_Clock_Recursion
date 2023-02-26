@@ -4,5 +4,5 @@ namespace RT_HA_Clock.LIB.Interfaces.Services;
 public interface IAnalogClockService
 {
     uint FindShortArmPosition(UserTimeInput userTimeInput);
-    uint CalculateSmallerAngleBetweenClockArms(UserTimeInput userTimeInput);
+    int CalculateSmallerAngleBetweenClockArms(UserTimeInput userTimeInput);
 }

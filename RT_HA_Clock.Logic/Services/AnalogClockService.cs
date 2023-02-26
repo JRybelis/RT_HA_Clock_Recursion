@@ -4,17 +4,17 @@ using RT_HA_Clock.LIB.Models;
 namespace RT_HA_Clock.Logic.Services;
 public class AnalogClockService : IAnalogClockService
 {
-    public uint CalculateSmallerAngleBetweenClockArms(UserTimeInput userTimeInput)
+    public int CalculateSmallerAngleBetweenClockArms(UserTimeInput userTimeInput)
     {
         const int clockCircumferenceDegree = 360;
         const int halfOfClockCircumferenceDegree = 180;
         const int clockArmPositionMarkDegree = 6;
 
         var shortArmPosition = FindShortArmPosition(userTimeInput);
-        var shortArmPositionDegree = shortArmPosition * clockArmPositionMarkDegree;
-        var longArmPositionDegree = userTimeInput.MinutesInput * clockArmPositionMarkDegree;
+        var shortArmPositionDegree = (int) shortArmPosition * clockArmPositionMarkDegree;
+        var longArmPositionDegree = (int) userTimeInput.MinutesInput * clockArmPositionMarkDegree;
 
-        var lesserAngle = (uint) Math.Abs(shortArmPositionDegree - longArmPositionDegree);
+        var lesserAngle = Math.Abs(shortArmPositionDegree - longArmPositionDegree);
         if(lesserAngle > halfOfClockCircumferenceDegree)
             lesserAngle = clockCircumferenceDegree - lesserAngle;
 
@@ -41,11 +41,11 @@ public class AnalogClockService : IAnalogClockService
     {
         uint positionAdjustmentMark = 0;
 
-        if (minutes < 15)
+        if (minutes is > 0 and < 15)
             positionAdjustmentMark = 1;
-        if (minutes >= 15 && minutes < 30)
+        if (minutes is >= 15 and < 30)
             positionAdjustmentMark = 2;
-        if (minutes >= 30 && minutes < 45)
+        if (minutes is >= 30 and < 45)
             positionAdjustmentMark = 3;
         if (minutes >= 45)
             positionAdjustmentMark = 4;
