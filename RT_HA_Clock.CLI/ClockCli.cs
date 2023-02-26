@@ -77,7 +77,7 @@ public string GetUserInput()
 
         while(userInputString.Length > maxUserInputLength 
         || userInputString.Length < minUserInputLength
-        || UInt32.TryParse(userInputString, out uint userInputUint) == false)
+        || UInt32.TryParse(userInputString, out _) == false)
         {
             _writer.Write($"Please enter between {minUserInputLength} and {maxUserInputLength} positive digits.");
             userInputString = _reader.Read();
@@ -88,16 +88,16 @@ public string GetUserInput()
 
     public uint CollectHourValue()
     {
-        bool doesUserInputCorrespondToAnHourOnA24hClock = false;
+        bool doesUserInputCorrespondToAnHourOnA24HClock = false;
         uint hour = 0;
 
-        while (!doesUserInputCorrespondToAnHourOnA24hClock)
+        while (!doesUserInputCorrespondToAnHourOnA24HClock)
         {
             _writer.Write("Please provide a desired hour value, on a 24 hour day, in digits:");
             hour = UInt32.Parse(GetUserInput());
 
             if (_inputValidationService.ValidateHours(hour))
-                doesUserInputCorrespondToAnHourOnA24hClock = true;
+                doesUserInputCorrespondToAnHourOnA24HClock = true;
         }
         
         return hour;

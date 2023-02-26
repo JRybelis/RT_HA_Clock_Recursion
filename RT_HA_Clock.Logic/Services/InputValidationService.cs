@@ -5,10 +5,10 @@ public class InputValidationService : IInputValidationService
 {
     public bool ValidateHours(uint hours)
     {
-        return hours > 24 ? false : true;
+        return hours <= 24;
     }
     public bool ValidateMinutes(uint minutes)
     {
-        return minutes > 59 ? false : true;
+        return minutes <= 59;
     }
 }
