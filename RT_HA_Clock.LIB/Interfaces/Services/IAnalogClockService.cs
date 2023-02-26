@@ -1,8 +1,8 @@
+using RT_HA_Clock.LIB.Models;
+
 namespace RT_HA_Clock.LIB.Interfaces.Services;
 public interface IAnalogClockService
 {
-    int FindShortArmPosition();
-    int FindLongArmPosition();
-    int FindSmallerAngleBetweenClockArms();
-    int CalculateSmallerAngleBetweenClockArms();
+    uint FindShortArmPosition(UserTimeInput userTimeInput);
+    uint CalculateSmallerAngleBetweenClockArms(UserTimeInput userTimeInput);
 }

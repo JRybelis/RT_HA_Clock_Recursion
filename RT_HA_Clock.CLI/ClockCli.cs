@@ -130,7 +130,7 @@ public string GetUserInput()
 
         _writer.Write(Environment.NewLine);
         _writer.Write($"Excellent, you have decided to check the time {userTimeInput.HoursInput} : {userTimeInput.MinutesInput}.");
-        _writer.Write("On an analog clock, the arms marking the time create a {angle} degree angle.");
+        _writer.Write($"On an analog clock, the arms marking the time create a {angle} degree angle.");
         _writer.Write(Environment.NewLine);
     }
 
