@@ -9,13 +9,16 @@ public class ClockCli : IClockViewService, IClockCli
     private readonly IWriter _writer;
     private readonly IReader _reader;
     private readonly IInputValidationService _inputValidationService;
+    private readonly IAnalogClockService _analogClockService;
     
     public ClockCli(IWriter writer, IReader reader, 
-    IInputValidationService inputValidationService)
+    IInputValidationService inputValidationService,
+    IAnalogClockService analogClockService)
     {
         _writer = writer;
         _reader = reader;
         _inputValidationService = inputValidationService;
+        _analogClockService = analogClockService;
     }
 
     public void Run()
@@ -123,10 +126,12 @@ public string GetUserInput()
 
     public void DisplayCalculatedAngle(UserTimeInput userTimeInput)
     {
-        // var angle = CalculateAngle();
-        // _writer.Write("The angle is:")
-        // _writer.Write(angle)
-        throw new NotImplementedException();
+        var angle = _analogClockService.CalculateSmallerAngleBetweenClockArms(userTimeInput);
+
+        _writer.Write(Environment.NewLine);
+        _writer.Write($"Excellent, you have decided to check the time {userTimeInput.HoursInput} : {userTimeInput.MinutesInput}.");
+        _writer.Write("On an analog clock, the arms marking the time create a {angle} degree angle.");
+        _writer.Write(Environment.NewLine);
     }
 
     public bool IsUserContinuing()
