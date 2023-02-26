@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 
 namespace RT_HA_Clock.LIB.Models;
-public class UserInput
+public class UserTimeInput
 {
     [Range(0, 24)]
     public int HoursInput { get; set; }
