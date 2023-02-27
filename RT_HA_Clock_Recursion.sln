@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RT_HA_Clock.LIB", "RT_HA_Cl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RT_HA_Clock.Logic", "RT_HA_Clock.Logic\RT_HA_Clock.Logic.csproj", "{48E32D58-36B0-4B15-AC3B-34B131A05525}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RT_HA_Recursion.CLI", "RT_HA_Recursion.CLI\RT_HA_Recursion.CLI.csproj", "{A3583815-A138-40A5-851A-13B009547EE8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{48E32D58-36B0-4B15-AC3B-34B131A05525}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48E32D58-36B0-4B15-AC3B-34B131A05525}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48E32D58-36B0-4B15-AC3B-34B131A05525}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3583815-A138-40A5-851A-13B009547EE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3583815-A138-40A5-851A-13B009547EE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3583815-A138-40A5-851A-13B009547EE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3583815-A138-40A5-851A-13B009547EE8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
