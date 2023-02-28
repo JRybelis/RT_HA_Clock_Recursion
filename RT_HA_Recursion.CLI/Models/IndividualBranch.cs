@@ -1,5 +1,5 @@
 namespace RT_HA_Recursion.CLI.Models;
-public class SingleBranch
+public class IndividualBranch
 {
     public int Id { get; set; }
     public string Description { get; set; }
