@@ -37,63 +37,33 @@ public class AnalogClockService : IAnalogClockService
         return shortArmPosition;
     }
 
-    private uint FindShortArmPositionAdjustmentMark(uint minutes)
+    private static uint FindShortArmPositionAdjustmentMark(uint minutes)
     {
         uint positionAdjustmentMark = 0;
 
-        if (minutes is > 0 and < 15)
-            positionAdjustmentMark = 1;
-        if (minutes is >= 15 and < 30)
-            positionAdjustmentMark = 2;
-        if (minutes is >= 30 and < 45)
-            positionAdjustmentMark = 3;
-        if (minutes >= 45)
-            positionAdjustmentMark = 4;
+        switch (minutes)
+        {
+            case > 0 and < 15:
+                positionAdjustmentMark = 1;
+                break;
+            case >= 15 and < 30:
+                positionAdjustmentMark = 2;
+                break;
+            case >= 30 and < 45:
+                positionAdjustmentMark = 3;
+                break;
+            case >= 45:
+                positionAdjustmentMark = 4;
+                break;
+        }
 
         return positionAdjustmentMark;
     }
 
-    private uint NormalizeHours(uint hours)
+    private static uint NormalizeHours(uint hours)
     {
-        switch (hours)
-        {
-            case 13:
-                hours = 1;
-                break;
-            case 14:
-                hours = 2;
-                break;
-            case 15:
-                hours = 3;
-                break;
-            case 16:
-                hours = 4;
-                break;
-            case 17:
-                hours = 5;
-                break;
-            case 18:
-                hours = 6;
-                break;
-            case 19:
-                hours = 7;
-                break;
-            case 20:
-                hours = 8;
-                break;
-            case 21:
-                hours = 9;
-                break;
-            case 22:
-                hours = 10;
-                break;
-            case 23:
-                hours = 11;
-                break;
-            case 24:
-                hours = 12;
-                break;
-        }
+        if (hours > 12)
+            hours -= 12;
 
         return hours;
     }
