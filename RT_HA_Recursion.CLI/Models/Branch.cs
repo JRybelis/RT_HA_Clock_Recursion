@@ -4,46 +4,26 @@ using System.Diagnostics;
 namespace RT_HA_Recursion.CLI.Models;
 public class Branch
 {
-    public int? Id { get; set; }
-    public string Description { get; set; }
-    protected List<Branch>? branches;
-    protected Branch? stemBranch;
+    public int? Id { get; init; }
+    
+    public string? Description { get; init; }
+    
+    public Branch? StemBranch { get; private set; }
+
+    public int Depth { get; set; }
+    
+    private List<Branch>? _branches;
+    
+    public IEnumerable<Branch> Branches =>
+        _branches?.ToArray() ?? Enumerable.Empty<Branch>();
 
     public Branch()
     {
         Description = string.Empty;
     }
-    public Branch StemBranch 
-    { 
-        get 
-        { 
-            return stemBranch; 
-        } 
-    }
-    public Branch Root 
-    { 
-        get
-        {
-            return stemBranch is null ? this : stemBranch.Root;
-        }
-    }
-    public int Depth 
-    { 
-        get
-        {
-            return this.FindStems().Count() - 1;
-        }
-    }
-    public IEnumerable<Branch> Branches 
-    {
-        get 
-        {
-            return branches is null ? Enumerable.Empty<Branch>() 
-            : branches.ToArray();
-        }
-    }
-
-    public override string ToString()
+    
+    
+    public override string? ToString()
     {
         return Description;
     }
@@ -52,38 +32,19 @@ public class Branch
     {
         if (branchToAdd is null)
             throw new ArgumentNullException();
-        if (branchToAdd.stemBranch is not null)
+        if (branchToAdd.StemBranch is not null)
             throw new InvalidOperationException
             ("A branch must be removed from its stem before adding as sub-branch.");
         if (this.FindStems().Contains(branchToAdd))
             throw new InvalidOperationException(
                 "The branch structure must be a non-cyclic tree.");
-        if (branches is null)
-            branches = new List<Branch>();
         
-        Debug.Assert(!branches.Contains(branchToAdd), 
+        _branches ??= new List<Branch>();
+        
+        Debug.Assert(!_branches.Contains(branchToAdd), 
         "Branch in question is not a subBranch");
 
-        branchToAdd.stemBranch = this;
-        branches.Add(branchToAdd);
-    }
-
-    public bool RemoveBranches(Branch branchToRemove)
-    {
-        if (branchToRemove is null)
-            throw new ArgumentNullException();
-        if (branchToRemove.stemBranch != this)
-            return false;
-        
-        Debug.Assert(branches.Contains(branchToRemove), 
-        "Branch in question is a subBranch.");
-
-        branchToRemove.stemBranch = null;
-        branches.Remove(branchToRemove);
-
-        if (!branches.Any())
-            branches = null;
-
-        return true;
+        branchToAdd.StemBranch = this;
+        _branches.Add(branchToAdd);
     }
 }

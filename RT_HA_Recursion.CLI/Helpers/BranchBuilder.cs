@@ -3,7 +3,7 @@ using RT_HA_Recursion.CLI.Models;
 namespace RT_HA_Recursion.CLI.Helpers;
 public static class BranchBuilder
 {
-    public static Branch BuildBranchStructure(IEnumerable<IndividualBranch> flattenedIndividualBranches)
+    public static Branch BuildBranchStructure(IEnumerable<IndividualBranch>? flattenedIndividualBranches)
     {
         if (flattenedIndividualBranches is null)
             return new Branch();
@@ -29,8 +29,8 @@ public static class BranchBuilder
             flattenedIndividualBranches.Remove(branch); // node in layer already traversed
         }
             
-        foreach (var branch in branchStructure.Branches)
-            BuildBranchStructure(branch, flattenedIndividualBranches);
+        foreach (var subBranch in branchStructure.Branches)
+            BuildBranchStructure(subBranch, flattenedIndividualBranches);
     }
 
     private static Branch FindRootBranch(ICollection<IndividualBranch> flattenedIndividualBranches)

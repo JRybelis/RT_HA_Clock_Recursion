@@ -1,7 +1,7 @@
 namespace RT_HA_Recursion.CLI.Models;
 public class IndividualBranch
 {
-    public int Id { get; set; }
-    public string Description { get; set; }
-    public int? Stem { get; set; }
+    public int Id { get; init; }
+    public string? Description { get; init; }
+    public int? Stem { get; init; }
 }
